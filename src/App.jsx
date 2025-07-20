@@ -1,11 +1,8 @@
-import React from 'react';
+import './App.css'
+import Movie from "./Pages/Movie";
 
 const App = () => {
-  return (
-    <h1>
-      Hello Axios 
-    </h1>
-  );
-}
+  return <Movie />;
+};
 
 export default App;

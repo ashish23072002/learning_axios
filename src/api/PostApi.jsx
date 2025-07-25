@@ -19,3 +19,4 @@ export const postData =(post)=>{
   return api.post("/posts",post)
 }
 
+

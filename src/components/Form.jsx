@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { postData } from "../api/PostApi";
 
-export const Form = ({ data, setData }) => {
+export const Form = ({ data, setData, updateDataApi, setUpdateDataApi }) => {
   const [addData, setAddData] = useState({ title: "", body: "" });
 
   const addPostData = async () => {
@@ -11,6 +11,15 @@ export const Form = ({ data, setData }) => {
       setAddData({ title: "", body: "" });
     }
   };
+
+  //   get the udpated Data and add into input field
+  useEffect(() => {
+    updateDataApi &&
+      setAddData({
+        title: updateDataApi.title || "",
+        body: updateDataApi.body || "",
+      });
+  }, [updateDataApi]);
   const handleFormSubmit = (e) => {
     e.preventDefault();
     addPostData();

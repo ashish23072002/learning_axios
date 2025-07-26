@@ -18,7 +18,7 @@ const Post = () => {
     }
   };
   useEffect(() => {
-    console.log(getPostData());
+    getPostData();
   }, []);
 
   //fucntion to delete Post, in api as well in UI
@@ -39,7 +39,9 @@ const Post = () => {
     }
   };
 
-  const handleUpdatePost = (curElem) => setUpdateDataApi(curElem);
+  const handleUpdatePost = (curElem) => {
+    setUpdateDataApi(curElem);
+  };
 
   return (
     <>
@@ -53,14 +55,14 @@ const Post = () => {
       </section>
       <section className="section-post">
         <ol>
-          {data.map((curElemnt) => {
-            const { id, body, title } = curElemnt;
+          {data.map((curElem) => {
+            const { id, body, title } = curElem;
             return (
               <li key={id}>
                 <p>{id}</p>
                 <p>Title:{title}</p>
                 <p>Body:{body}</p>
-                <button onClick={() => handleUpdatePost()}>Edit</button>
+                <button onClick={() => handleUpdatePost(curElem)}>Edit</button>
                 <button
                   className="btn-delete"
                   onClick={() => handleDeletePost(id)}

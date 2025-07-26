@@ -19,4 +19,12 @@ export const postData =(post)=>{
   return api.post("/posts",post)
 }
 
+//put mothod
+export const updateData =(id,post)=>{
+  return api.put(`/posts/${id}`,post)
+}
+
+
+
+
 
